@@ -19,6 +19,24 @@ A C implementation of a symbol table (hash map) with two versions:
 | `SymTable_get()` | Retrieves value by key | O(1) avg / O(n) worst |
 | `SymTable_map()` | Applies function to all bindings | O(n) |
 
+## Key Features
+
+### Automatic Resizing (Hash version only):
+- Grows when load factor exceeds threshold
+- Uses prime number bucket sizes for better distribution
+
+### Memory Management:
+- Properly frees all allocated memory
+- Uses `strdup` for key copying
+
+### Error Handling:
+- Assertions validate input parameters
+- Returns `NULL`/`0` on failure
+
+### Polymorphic Values:
+- Stores `void*` values for flexibility
+- Supports any data type
+
 ## Build and Run
 
 ```bash
